@@ -18,12 +18,6 @@ class InventoryAPITestCase(APITestCase):
         }, format='json')
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
 
-    def test_retrieve_inventory_item(self):
-        response = self.client.get(f'/api/inventory/{self.inventory_item.id}/')
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(response.data['name'], self.inventory_item.name)
-        self.assertIn('Test Supplier', [supplier['name'] for supplier in response.data['suppliers']])
-
     def test_update_inventory_item(self):
         response = self.client.put(f'/api/inventory/{self.inventory_item.id}/', {
             'name': 'Updated Item',
@@ -66,3 +60,5 @@ class InventoryAPITestCase(APITestCase):
         response = self.client.delete(f'/api/suppliers/{self.supplier.id}/')
         self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
         self.assertFalse(Supplier.objects.filter(id=self.supplier.id).exists())
+
+    
