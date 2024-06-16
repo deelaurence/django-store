@@ -1,74 +1,100 @@
-### Create a Supplier
+
+
+
+# WELCOME TO MY MINI DOCUMENTATION 
+# DOWNLOAD REST client Extension
+
+# REST Client
+# By Huachao Mao
+
+
+
+
+# Add a new supplier
 POST http://localhost:8000/api/suppliers/
 Content-Type: application/json
 
 {
-    "name": "Addrenal",
-    "contact_info": "Suffolk Avenue"
+    "name": "Supplier One",
+    "contact_info": "123 Main St"
 }
 
 ###
-
-### Get All Suppliers
-GET http://localhost:8000/api/suppliers/
-
-###
-
-### Get a Specific Supplier
-GET http://localhost:8000/api/suppliers/1/
-
-###
-
-### Update a Specific Supplier
-PUT http://localhost:8000/api/suppliers/1/
+# Add another new supplier
+POST http://localhost:8000/api/suppliers/
 Content-Type: application/json
 
 {
-    "name": "supplier-edited",
-    "contact_info": "Suffolk Avenue"
+    "name": "Supplier Two",
+    "contact_info": "456 Oak St"
 }
 
 ###
-
-### Delete a Specific Supplier
-DELETE http://localhost:8000/api/suppliers/1/
-
-###
-
-### Create an Inventory Item
+# Add a new inventory item with suppliers
 POST http://localhost:8000/api/inventory/
 Content-Type: application/json
 
 {
-    "name": "pins-2",
-    "description": "office pins",
-    "price": 567,
-    "suppliers": ["Addrenal"]
+    "name": "Item 1",
+    "description": "Description of Item 1",
+    "price": 100.00,
+    "suppliers": ["Supplier One", "Supplier Two"]
 }
 
 ###
+# Add another inventory item with one supplier
+POST http://localhost:8000/api/inventory/
+Content-Type: application/json
 
-### Get All Inventory Items
+{
+    "name": "Item 2",
+    "description": "Description of Item 2",
+    "price": 200.00,
+    "suppliers": ["Supplier One"]
+}
+
+###
+# Retrieve all inventory items
 GET http://localhost:8000/api/inventory/
-
 ###
 
-### Get a Specific Inventory Item
+# Retrieve a specific inventory item
 GET http://localhost:8000/api/inventory/1/
-
 ###
 
-### Update a Specific Inventory Item
+# Retrieve all suppliers
+GET http://localhost:8000/api/suppliers/
+###
+
+# Retrieve a specific supplier
+GET http://localhost:8000/api/suppliers/1/
+###
+
+# Update an inventory item
 PUT http://localhost:8000/api/inventory/1/
 Content-Type: application/json
 
 {
-    "name": "pins-edited",
-    "description": "office pins",
-    "price": 5670
+    "name": "Item 1 - Updated",
+    "description": "Updated description of Item 1",
+    "price": 150.00,
+    "suppliers": ["Supplier A"]
 }
 
 ###
+# Update a supplier
+PUT http://localhost:8000/api/suppliers/1/
+Content-Type: application/json
 
-### Delete a Specific Inventory Item
+{
+    "name": "Supplier A - Updated",
+    "contact_info": "789 Pine St"
+}
+
+###
+# Delete an inventory item
 DELETE http://localhost:8000/api/inventory/1/
+###
+
+# Delete a supplier
+DELETE http://localhost:8000/api/suppliers/4/
