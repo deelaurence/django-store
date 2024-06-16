@@ -1,0 +1,74 @@
+### Create a Supplier
+POST http://localhost:8000/api/suppliers/
+Content-Type: application/json
+
+{
+    "name": "Addrenal",
+    "contact_info": "Suffolk Avenue"
+}
+
+###
+
+### Get All Suppliers
+GET http://localhost:8000/api/suppliers/
+
+###
+
+### Get a Specific Supplier
+GET http://localhost:8000/api/suppliers/1/
+
+###
+
+### Update a Specific Supplier
+PUT http://localhost:8000/api/suppliers/1/
+Content-Type: application/json
+
+{
+    "name": "supplier-edited",
+    "contact_info": "Suffolk Avenue"
+}
+
+###
+
+### Delete a Specific Supplier
+DELETE http://localhost:8000/api/suppliers/1/
+
+###
+
+### Create an Inventory Item
+POST http://localhost:8000/api/inventory/
+Content-Type: application/json
+
+{
+    "name": "pins-2",
+    "description": "office pins",
+    "price": 567,
+    "suppliers": ["Addrenal"]
+}
+
+###
+
+### Get All Inventory Items
+GET http://localhost:8000/api/inventory/
+
+###
+
+### Get a Specific Inventory Item
+GET http://localhost:8000/api/inventory/1/
+
+###
+
+### Update a Specific Inventory Item
+PUT http://localhost:8000/api/inventory/1/
+Content-Type: application/json
+
+{
+    "name": "pins-edited",
+    "description": "office pins",
+    "price": 5670
+}
+
+###
+
+### Delete a Specific Inventory Item
+DELETE http://localhost:8000/api/inventory/1/
